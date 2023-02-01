@@ -1,0 +1,5 @@
+1. Go to the directory which has the cpp file.
+2. Type g++ filename
+    OR if you want to name the executable file then: g++ filename -o name_you_want_to_give
+3. a OR name_you_want_to_give
+4. ENTER
