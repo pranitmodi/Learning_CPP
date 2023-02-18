@@ -15,14 +15,7 @@ int main()
     int bin = 0;
     while(n!=0)
     {
-        if(n&1) //Using AND Operator
-        {
-            d = 1;
-        }
-        else
-        {
-            d = 0;
-        }
+        d = n&1;  //Using AND Operator
         double w = pow(10,count);
         bin += ((int)w * d);
         n = n>>1; //Right Shift
