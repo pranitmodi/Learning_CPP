@@ -1,15 +1,13 @@
 #include <iostream>
-#include <cstdlib>
-#include <math.h>
+#include <cmath>
 using namespace std;
 int main()
 {
     int n;
-    cout << "Enter the neagative number: " << endl;
+    cout << "Enter decimal number: " << endl;
     cin >> n;
 
-    int a = abs(n);
-    int n1=a;
+    int n1=n;
     int bin = 0;
     int count = 0;
     while (n1!=0)
@@ -20,6 +18,8 @@ int main()
         n1 = n1>>1;
         count++;
     }
+
+    cout << "Binary Representation of " << n << " is: " << bin << endl;
 
     int bin1=bin;
     int ones = 0;
@@ -34,17 +34,18 @@ int main()
         count++;
     }
 
-    cout << "One's compliment of " << n << " is: " << ones << endl;
+    cout << "One's compliment of " << bin << " is: " << ones << endl;
 
     int ones1 = ones;
     int twos = ones;
     count = 0;
 
-    if (ones1 == 1)
+    if(ones1 == 1)
     {
-        cout << "Binary Representation of " << n << " is: " << "10" << endl;
+        cout << "Two's compliment of " << bin << " is: 10" << endl;
         return 0;
     }
+
     while(ones1 != 0)
     {
         int d = ones1 % 10;
@@ -61,5 +62,5 @@ int main()
         count++;
     }
 
-    cout << "Binary Representation (2's compliment) of " << n << " is: " << twos << endl;
+    cout << "Two's compliment of " << bin << " is: " << twos << endl;
 }

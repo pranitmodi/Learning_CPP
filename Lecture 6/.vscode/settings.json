@@ -3,6 +3,7 @@
         "*.ejs": "html",
         "cmath": "cpp",
         "ostream": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "iostream": "cpp"
     }
 }

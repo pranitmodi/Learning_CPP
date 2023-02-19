@@ -9,5 +9,9 @@ int main()
     int d = (int) c;
 
     cout << a << endl << b << endl << c << endl;
+
+    int e = 1;
+    cout << (!e);
+
     return 0;
 }
