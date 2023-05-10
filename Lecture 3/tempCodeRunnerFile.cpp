@@ -1,2 +1,0 @@
-
-        cout << "Bigger numb
