@@ -11,6 +11,16 @@ int main()
 
     cout << "Printing n: " << n << endl;
 
+    // int d;
+    // int c = 0;
+    // while(n!=0)
+    // {
+    //     d = n%2;
+    //     if(d == 1)
+    //         c++;
+    //     n = n/2;
+    // }
+
     int c=0;
     while(n!=0)
     {
