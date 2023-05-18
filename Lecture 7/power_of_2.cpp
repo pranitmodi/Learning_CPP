@@ -10,6 +10,8 @@ int main()
     cout << "Enter a number: " << endl;
     cin >> n;
     
+    //OR Use Set Bits as all the integers with power of 2 has Set Bits = number os 1 in their binary value as 1.
+
     double d = 0;
     int count = 0;
     while(d <= n)
