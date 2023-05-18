@@ -1,1 +1,1 @@
-using namespace std;
+int d = (size-1)/2;
