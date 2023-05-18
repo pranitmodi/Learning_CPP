@@ -1,0 +1,7 @@
+-> Swap Alternate
+-> find unique
+-> find duplicate
+-> array intersection
+-> pair sum
+-> triplet sum
+-> soft 0's and 1's
