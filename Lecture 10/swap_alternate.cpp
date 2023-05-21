@@ -26,14 +26,20 @@ int main()
     int arr[20];
     int size = takeInput(arr);
     int m;
-    if(size % 2 ==0)
-        m = size-2;
-    else
-        m = size-3;
+    // if(size % 2 ==0)
+    //     m = size-2;
+    // else
+    //     m = size-3;
     
-    for(int i=0; i<=m; i=i+2)
+    // for(int i=0; i<=m; i=i+2)
+    // {
+    //     swap(arr[i],arr[i+1]);
+    // }
+
+    for(int i=0; i<size; i=i+2) //Better approach
     {
-        swap(arr[i],arr[i+1]);
+        if(i+1 < size)
+            swap(arr[i],arr[i+1]);
     }
 
     cout << "Alternate Swapped Array: " << endl;
