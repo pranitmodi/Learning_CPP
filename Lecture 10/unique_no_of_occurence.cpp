@@ -7,20 +7,54 @@ int main()
 {
     int arr[30];
 
+    int s;
+    cout << "Enter the number of elements: " << endl;
+    cin >> s;
+
     cout << "Enter elements: " << endl;
-    for(int i=0; i<20; i++)
+    for(int i=0; i<s; i++)
     {
         cin >> arr[i];
     }
 
     vector<int> ans;
-    int size = arr.size();
-    sort(arr.begin(),arr.end());
-    int i=0;
-    while(i < size)
+    int size = sizeof(arr)/sizeof(int);
+
+    cout << "Array elements: " << endl;
+    for(int i=0; i<s; i++)
     {
-        int count = 1;
-        for(int j=i+1; j<size; j++)
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+    
+    for(int i=0; i<s; i++)
+    {
+        int t=arr[i];
+        int p=i;
+        for(int j=i+1; j<s; j++)
+        {
+            if(arr[j]<t)
+            {
+                t = arr[j];
+                p=j;
+            }
+        }
+        arr[p] = arr[i];
+        arr[i] = t;
+    }
+
+    cout << "Sorted Array elements: " << endl;
+    for(int i=0; i<s; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    int i=0;
+    while(i < s)
+    {
+        int count = 1;  
+        for(int j=i+1; j<s; j++)
         {
             if(arr[i] == arr[j])
             {
@@ -39,7 +73,11 @@ int main()
     for(int i=0; i<size-1; i++)
     {
         if(ans[i] == ans[i+1])
-            cout <<  false;
+        {
+            cout << "false";
+            return 0;
+        }
     }
-    cout << true;
+    cout << "true";
+    return 0;
 }
