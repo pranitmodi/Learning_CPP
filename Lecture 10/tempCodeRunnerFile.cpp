@@ -1,1 +1,2 @@
-    // cout << ans[1];
+else
+                i++;
