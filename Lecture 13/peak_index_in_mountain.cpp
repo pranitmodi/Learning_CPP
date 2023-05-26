@@ -1,10 +1,8 @@
+// LeetCode
+// 852. Peak Index in a Mountain Array
+// Using Binary Search
 #include <bits/stdc++.h>
 using namespace std;
-//For input of the array elements and the size
-int middle(int s, int e)
-{
-    return(s + ((e-s)/2)); //so that start + end may not cause an error
-}
 int inputArray(int a[])
 {
     cout << "Enter the number of elements: " << endl;
@@ -28,25 +26,26 @@ void printArray(int a[], int size)
     }
     cout << endl;
 }
-// Binary Search Code
-int binarySearch(int arr[], int size, int key)
+int peakOccurance(int arr[], int size)
 {
     int start = 0;
     int end = size-1;
-    int mid = middle(start, end);
+    int mid;
 
     while(start <= end)
     {
-        if(arr[mid] == key)
-            return mid;
-        else if(arr[mid] > key)
-            end = mid -1;
-        else
+        mid = start + (end-start)/2;
+        if(arr[mid+1] > arr[mid])
+        {
             start = mid + 1;
-        
-        mid = middle(start, end);
+        }
+        else if(arr[mid-1] > arr[mid])
+        {
+            end = mid - 1;
+        }
+        else
+            return mid;
     }
-    return -1;
 }
 int main()
 {
@@ -54,12 +53,9 @@ int main()
     int size = inputArray(arr);
     printArray(arr, size);
 
-    int key;
-    cout << "Enter the element to be found: " << endl;
-    cin >> key;
+    int peak = peakOccurance(arr, size);
 
-    int pos = binarySearch(arr, size, key);
-    cout << "The position of " << key << " is: " << pos << endl;
+    cout << "Peak Occurance at Index: " << peak << endl;
 
     return 0;
 }
