@@ -87,7 +87,8 @@ int main()
             break;
          case 2:
             swap(arr[mid], arr[high]);
-            high--;
+            high--; 
+            //No mid++ -> because the swaped value that is coming in place of mid also needs to be checked, because our main focus is only leaving 1's in between and swapping 0's and 2's.
             break;
       }
    }
