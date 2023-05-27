@@ -23,6 +23,23 @@ long long int floorSqrt(int n)
     }
     return ans;
 }
+
+double morePrecision(int n, int count, int w)
+{
+    double ans = w;
+    double d = 1;
+    for(int i=1; i<=count; i++)
+    {
+        d = d/10;
+        for(double j=ans+d; j*j < n; j=j+d)
+        {
+            ans = j;
+        }
+        // cout << "At, " << i << "th iteration: " << ans << endl;
+    }
+    return ans;
+}
+
 int main()
 {
     int n;
@@ -30,6 +47,11 @@ int main()
     cin >> n;
 
     long long int sqr = floorSqrt(n);
-    cout << "Answer: " << sqr;
+    cout << "Answer: " << sqr << endl;
+
+    int w = (int)sqr;
+    double precise = morePrecision(n, 3, w);
+    cout << "Precise Answer: " << precise << endl;
+
     return 0;
 }
