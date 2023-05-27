@@ -1,6 +1,7 @@
 // Using Binary Search
 #include <bits/stdc++.h>
 using namespace std;
+// For input of the elements
 int inputArray(int a[])
 {
     cout << "Enter the number of elements: " << endl;
