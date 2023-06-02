@@ -1,6 +1,8 @@
 // Number of subsets with product less than k
 // GfG
 // Given an array arr[] of N elements. Find the number of non-empty subsets whose product of elements is less than or equal to a given integer K.
+
+// NOT COMPLETE - NEED WORKING
 #include <bits/stdc++.h>
 using namespace std;
 class Solution {
