@@ -1,0 +1,28 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+int main()
+{
+    vector <int> v;
+
+    cout << "No element" << endl;
+    cout << "Capacity - " << v.capacity() << endl; //0
+    cout << "Size - " << v.size() << endl;
+    v.push_back(45);
+    cout << "One element" << endl;
+    cout << "Capacity - " << v.capacity() << endl; //1
+    cout << "Size - " << v.size() << endl;
+    v.push_back(4);
+    cout << "Two element" << endl;
+    cout << "Capacity - " << v.capacity() << endl; //2 = 1*2
+    cout << "Size - " << v.size() << endl;
+    v.push_back(5);
+    cout << "Three element" << endl;
+    cout << "Capacity - " << v.capacity() << endl; //4 - keeps on doubling as the element increses and no more space
+    cout << "Size - " << v.size() << endl;
+    v.push_back(7);
+    cout << "Fourth element" << endl;
+    cout << "Capacity - " << v.capacity() << endl; //4
+    cout << "Size - " << v.size() << endl;
+    return 0;
+}
