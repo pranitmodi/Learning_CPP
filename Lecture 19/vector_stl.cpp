@@ -24,5 +24,26 @@ int main()
     cout << "Fourth element" << endl;
     cout << "Capacity - " << v.capacity() << endl; //4
     cout << "Size - " << v.size() << endl;
+    v.push_back(4);
+    cout << "Fifth element" << endl;
+    cout << "Capacity - " << v.capacity() << endl; //4
+    cout << "Size - " << v.size() << endl;
+
+    // Better way to access vector elements
+    cout << "Vector Elements: ";
+    for(int i:v)
+    {
+        cout << i <<" ";
+    }
+    cout << endl;
+
+    vector <int> a(6,2); // 2 2 2 2 2 2
+    cout << "A elements: ";
+    for(int i:a)
+    {
+        cout << i << " ";
+    }
+    cout << endl;
+
     return 0;
 }
