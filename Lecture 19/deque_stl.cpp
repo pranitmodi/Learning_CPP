@@ -24,6 +24,17 @@ int main()
     d.pop_front(); // to remove the element from the first
     print(d);
 
+    d.push_front(1);
+    d.push_front(2);
+    d.push_front(3);
+    print(d);
+    cout << "Element at 0th index: " << d.at(0) << endl; // you can use .at() for specific element
+
+    cout << "Empty? - " << d.empty() << endl; // return 0 - false - not empty
+
+    d.erase(d.begin(), d.end()); // Erasing all the elements(starting position, ending position) - using d.begin() and d.end() only preferrably
+    print(d);
+    cout << "Empty? - " << d.empty() << endl; // returns true
     
     return 0;
 }

@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 #include <vector>
 using namespace std;
 int main()
@@ -29,6 +29,9 @@ int main()
     cout << "Capacity - " << v.capacity() << endl; //4
     cout << "Size - " << v.size() << endl;
 
+    // Sorting of Vector
+    sort(v.begin(),v.end());
+
     // Better way to access vector elements
     cout << "Vector Elements: ";
     for(int i:v)
@@ -44,6 +47,8 @@ int main()
         cout << i << " ";
     }
     cout << endl;
+
+    cout << a.at(0); // you can use .at() for specific element
 
     return 0;
 }
