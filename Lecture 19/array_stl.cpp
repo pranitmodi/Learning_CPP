@@ -4,7 +4,6 @@ using namespace std;
 int main()
 {
     array <int,5> a;
-    cout << a.empty() << endl; //returns 0
     cout << "Enter elements: " << endl;
 
     int size = a.size();
@@ -19,8 +18,6 @@ int main()
         cout << a[i] << " " << endl;
     }
     cout << endl; 
-
-    cout << a.empty() << endl; //returns 0
 
     return 0;
 }
