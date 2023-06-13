@@ -21,6 +21,8 @@ int main()
     int l = nums.size();
     int arr[200000];
 
+    // SOLUTION 1
+
     while(k>l)
     {
         k = k - l;
@@ -45,6 +47,15 @@ int main()
     {
         nums[i] = arr[i];
     }
+
+    // SOLUTION 2
+    // vector <int> temp(nums.size());
+    // for(int i=0; i<nums.size(); i++)
+    // {
+    //     temp[(k+i)%nums.size()] = nums[i];
+    // }
+    // nums = temp;
+
 
     cout << "Output: ";
     for(int i=0;i<l;i++)
