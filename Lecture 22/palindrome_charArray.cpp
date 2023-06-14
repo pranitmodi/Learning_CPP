@@ -19,6 +19,7 @@ int main()
         if(str[i++] != str[j--])
         {
             counter++;
+            cout << str[i-1] << " " << str[j+1] << ":" << j+1 << endl;
             break;
         }
     }
