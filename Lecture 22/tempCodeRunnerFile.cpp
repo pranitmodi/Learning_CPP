@@ -1,0 +1,1 @@
+str[j] = toLowerCase(str[j]);
