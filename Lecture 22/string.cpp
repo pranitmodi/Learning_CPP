@@ -4,9 +4,9 @@ int main()
 {
     string str;
     cout << "Enter String: ";
-    cin >> str;
+    // cin >> str; //Spaces terminates the input
 
-    
+    getline(cin, str);
 
     return 0;
 }
