@@ -17,7 +17,7 @@ bool check(char ch)
 }
 int main()
 {
-    char str[20]; //NO SPACES ALLOWED BECAUSE CHAR ARRAY
+    char str[25]; //NO SPACES ALLOWED BECAUSE CHAR ARRAY
     cout << "Enter String:";
     cin >> str;
 
@@ -29,14 +29,20 @@ int main()
         j++;
     }
     j--;
+
+    cout << "Length: " << j << endl;
     int i = 0;
 
     int counter = 0;
 
     while(!check(str[i]))
+    {
         i++;
+    }
     while(!check(str[j]))
+    {
         j--;
+    }
 
     while(i<=j)
     {
