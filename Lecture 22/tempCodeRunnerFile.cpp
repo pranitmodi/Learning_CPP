@@ -1,1 +1,1 @@
-str[j] = toLowerCase(str[j]);
+getline(cin, str);
