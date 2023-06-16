@@ -1,1 +1,2 @@
-getline(cin, str);
+
+    w.append(to_string(2));

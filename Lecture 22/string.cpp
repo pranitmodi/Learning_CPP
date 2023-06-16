@@ -25,5 +25,12 @@ int main()
     cout << s1.substr(3,20) << endl; // lo World
     cout << s1.substr(3,7) << endl; // lo Worl
 
+    cout << "NEW: " << endl;
+    string w = "";
+    w.append(to_string(2));
+    int f =3;
+    w.push_back(f);
+    cout << "W: " << w << endl;
+
     return 0;
 }
