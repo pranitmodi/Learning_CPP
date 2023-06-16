@@ -12,6 +12,8 @@ int main()
         chars.push_back(str[i]);
     }
 
+    // A better optimized solution in NOTES
+
     int l = chars.size();
     string s = "";
     for(int i=0; i<l;)
