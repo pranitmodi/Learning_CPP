@@ -1,3 +1,5 @@
+//LeetCode
+//240. Search a 2D Matrix II
 #include <bits/stdc++.h>
 using namespace std;
 int main()
@@ -36,56 +38,67 @@ int main()
 
     int s = 0;
     int e = col-1;
-    while(s < e)
+    
+    while(s<row && e>=0)
     {
-        int mid = s + ((e-s)/2);
-        int midVal = matrix[0][mid];
-        if(midVal == target)
-            found = 1;
-        else if(midVal > target)
-            e = mid-1;
+        int ele = matrix[s][e];
+        if(target == ele)
+        {
+            cout << "Found!" << endl;
+            return 0;
+        }
+        else if(target > ele)
+            s++;
         else
-            s = mid+1;
+            e--;
     }
-    int c = s;
+    cout << "Not Found!" << endl;
 
-    s = 0;
-    e = row-1;
-    while(s < e)
-    {
-        int mid = s + Math.ceil((double)((e-s)/2));
-        int midVal = matrix[mid][0];
-        cout << "in" << " mid:" << mid << endl;
-        if(midVal == target)
-            found = 1;
-        else if(midVal > target)
-            e = mid-1;
-        else
-            s = mid+1;
-        cout << "in" << " e:" << e << endl;
-        cout << "in" << " s:" << s << endl;
-    }
-    int r = s;
-
-    cout << r << " , " << c << endl;
-
-    for(int i=0; i<=r; i++)
-    {
-        if(matrix[i][c] == target)
-            found = 1;
-    }
-
-    for(int i=0; i<=c; i++)
-    {
-        if(matrix[r][i] == target)
-            found = 1;
-    }
-
-    if(found)
-        cout << "Found!" << endl;
-    else
-        cout << "Not Found." << endl;
-
+    // My previous approach - WRONG APPROACH
+    // while(s < e)
+    // {
+    //     int mid = s + ((e-s)/2);
+    //     int midVal = matrix[0][mid];
+    //     if(midVal == target)
+    //         found = 1;
+    //     else if(midVal > target)
+    //         e = mid-1;
+    //     else
+    //         s = mid+1;
+    // }
+    // int c = s;
+    // s = 0;
+    // e = row-1;
+    // while(s < e)
+    // {
+    //     int mid = s + Math.ceil((double)((e-s)/2));
+    //     int midVal = matrix[mid][0];
+    //     cout << "in" << " mid:" << mid << endl;
+    //     if(midVal == target)
+    //         found = 1;
+    //     else if(midVal > target)
+    //         e = mid-1;
+    //     else
+    //         s = mid+1;
+    //     cout << "in" << " e:" << e << endl;
+    //     cout << "in" << " s:" << s << endl;
+    // }
+    // int r = s;
+    // cout << r << " , " << c << endl;
+    // for(int i=0; i<=r; i++)
+    // {
+    //     if(matrix[i][c] == target)
+    //         found = 1;
+    // }
+    // for(int i=0; i<=c; i++)
+    // {
+    //     if(matrix[r][i] == target)
+    //         found = 1;
+    // }
+    // if(found)
+    //     cout << "Found!" << endl;
+    // else
+    //     cout << "Not Found." << endl;
 
     return 0;
 }
