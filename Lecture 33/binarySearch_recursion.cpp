@@ -19,6 +19,20 @@ bool binarySearch(int arr[], int size, int key)
     return(binarySearch(arr+s,e+1,key));
 
 }
+int binarySearch2(vector<int>& arr, int s, int e, int key) //if we need the index
+{
+    if(s > e)
+        return -1;   
+
+    int mid = s + (e-s)/2;
+    if(arr[mid] == key)        
+        return mid;
+    else if(arr[mid] > key)
+        return(binarySearch2(arr,s,mid-1,key));
+    else 
+        return(binarySearch2(arr,mid+1,e,key));
+
+}
 int main()
 {
     int arr[20];
