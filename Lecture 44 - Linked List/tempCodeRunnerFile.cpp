@@ -1,4 +1,5 @@
-InsertAtHead(head,344);
+print(head);
+    InsertAtHead(head,344);
     print(head);
     InsertAtHead(head,346);
     print(head);
