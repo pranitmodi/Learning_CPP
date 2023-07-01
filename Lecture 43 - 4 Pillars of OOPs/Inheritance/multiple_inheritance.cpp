@@ -20,3 +20,18 @@ class Animal
             cout << "Animal is Barking" << endl;
         }
 };
+
+// Multiple Inheritance
+class Hybrid:public Animal, public Human
+{
+
+};
+
+int main()
+{
+    Hybrid h1;
+    h1.bark();
+    h1.speak();
+
+    return 0;
+}
