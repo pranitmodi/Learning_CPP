@@ -19,26 +19,32 @@ class Node
             //memory free
             if(this->next != NULL)
             {
-                delete next; //memory that was allocated for the object is freed
                 this->next = NULL; //ensures that any further attempts to access this->next will result in a null pointer
+                delete next; //memory that was allocated for the object is freed
             }
             cout << "Memory is free for the node with data: " << value << endl;
         }
 };
-void InsertAtHead(Node *&head, int data) // shifting head backwards
+
+// shifting head backwards
+void InsertAtHead(Node *&head, int data)
 {
     Node *temp = new Node(data);
 
     temp->next = head;
     head = temp;
 }
-void InsertAtTail(Node *&tail, int data) // shifting tail forward
+
+// shifting tail forward
+void InsertAtTail(Node *&tail, int data)
 {
     Node *temp = new Node(data);
 
     tail->next = temp;
     tail = temp;
 }
+
+// inserting at any position 
 void InsertAtPosition(Node *&head, Node *&tail, int pos, int data)
 {
     // Insert at start
@@ -69,7 +75,9 @@ void InsertAtPosition(Node *&head, Node *&tail, int pos, int data)
     new1->next = temp->next;
     temp->next = new1;
 }
-void print(Node *&head) // prints in forward manner only
+
+// prints in forward manner only
+void print(Node *&head)
 {
     if(head == NULL)
     {
@@ -86,7 +94,7 @@ void print(Node *&head) // prints in forward manner only
     cout << endl;
 }
 
-void DeleteNode(int pos, Node *&head)
+void DeleteNode(int pos, Node *&head, Node *&tail)
 {
     if(pos == 1)
     {
@@ -106,7 +114,15 @@ void DeleteNode(int pos, Node *&head)
     }
 
     Node *temp2 = temp->next;
-    temp->next = temp2->next;
+    if(temp2 == tail)
+    {
+        temp->next = NULL;
+        tail = temp;
+    }
+    else
+    {
+        temp->next = temp2->next;
+    }
     temp2->next = NULL;
     delete temp2; //removing from the memory
 }
@@ -148,12 +164,17 @@ int main()
     cout << "Tail: " << tail->data << endl;
 
     cout << "Deletion Starts: " << endl;
-    DeleteNode(2,head);
+    DeleteNode(2,head,tail);
     print(head);
-    DeleteNode(1,head);
+    DeleteNode(1,head,tail);
     print(head);
-    DeleteNode(3,head);
+    DeleteNode(3,head,tail);
     print(head);
+    DeleteNode(7,head,tail);
+    print(head);
+
+    cout << "Head: " << head->data << endl;
+    cout << "Tail: " << tail->data << endl;
 
 
     return 0;
