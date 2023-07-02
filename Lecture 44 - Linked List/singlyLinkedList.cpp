@@ -11,6 +11,19 @@ class Node
             this->data = data;
             this->next = NULL;
         }
+
+        //destructor
+        ~Node()
+        {
+            int value = this->data;
+            //memory free
+            if(this->next != NULL)
+            {
+                delete next; //memory that was allocated for the object is freed
+                this->next = NULL; //ensures that any further attempts to access this->next will result in a null pointer
+            }
+            cout << "Memory is free for the node with data: " << value << endl;
+        }
 };
 void InsertAtHead(Node *&head, int data) // shifting head backwards
 {
@@ -52,7 +65,6 @@ void InsertAtPosition(Node *&head, Node *&tail, int pos, int data)
         }
     }
 
-
     Node *new1 = new Node(data);
     new1->next = temp->next;
     temp->next = new1;
@@ -72,6 +84,31 @@ void print(Node *&head) // prints in forward manner only
         temp = temp->next;
     }
     cout << endl;
+}
+
+void DeleteNode(int pos, Node *&head)
+{
+    if(pos == 1)
+    {
+        Node *temp = head;
+        head = head->next;
+        return;
+        temp->next = NULL;
+        delete temp;
+    }
+
+    int c = 1;
+    Node *temp = head;
+    while(c < pos-1)
+    {
+        temp = temp->next;
+        c++;
+    }
+
+    Node *temp2 = temp->next;
+    temp->next = temp2->next;
+    temp2->next = NULL;
+    delete temp2; //removing from the memory
 }
 
 int main()
@@ -109,6 +146,14 @@ int main()
 
     cout << "Head: " << head->data << endl;
     cout << "Tail: " << tail->data << endl;
+
+    cout << "Deletion Starts: " << endl;
+    DeleteNode(2,head);
+    print(head);
+    DeleteNode(1,head);
+    print(head);
+    DeleteNode(3,head);
+    print(head);
 
 
     return 0;
