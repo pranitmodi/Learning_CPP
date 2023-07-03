@@ -1,9 +1,2 @@
-print(head);
-    InsertAtTail(tail,344);
-    print(head);
-    InsertAtTail(tail,346);
-    print(head);
-    InsertAtTail(tail,348);
-    print(head);
-    InsertAtTail(tail,350);
-    print(head);
+deleteNode(head, 100);
+    // print(head);
