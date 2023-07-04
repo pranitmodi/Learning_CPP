@@ -1,0 +1,14 @@
+insertAtPos(head,3,98);
+    print(head);
+    insertAtPos(head,4,74);
+    print(head);
+    insertAtPos(head,5,36);
+    print(head);
+    insertAtHead(head,9);
+    print(head);
+    insertAtHead(head,8);
+    print(head);
+    insertAtHead(head,7);
+    print(head);
+    insertAtHead(head,6);
+    print(head);
