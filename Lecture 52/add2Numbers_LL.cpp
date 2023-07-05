@@ -100,7 +100,8 @@ Node* add(Node *&head1, Node *&head2)
         temp1 = temp1->next;
         temp2 = temp2->next;
     }
-
+    cout << "after 1: " << endl;
+    print(ans);
     if(temp1->next != NULL)
     {
         while(temp1->next != NULL)
@@ -108,11 +109,20 @@ Node* add(Node *&head1, Node *&head2)
             temp1 = temp1->next;
             int a = temp1->data;
             a = a + counter;
+            counter = a/10;
+            a = a%10;
 
+            cout << a << endl;
             insert(ans,a);
             if(temp1->next == NULL)
-                break;
-            temp1 = temp1->next;
+            {
+                if(counter != 0)
+                {
+                    insert(ans,counter);
+                }
+                reverse(ans);
+                return ans;
+            }
         }
         insert(ans,temp1->data);
     }
@@ -123,11 +133,19 @@ Node* add(Node *&head1, Node *&head2)
             temp2 = temp2->next;
             int a = temp2->data;
             a = a + counter;
+            counter = a/10;
+            a = a%10;
 
             insert(ans,a);
             if(temp2->next == NULL)
-                break;
-            temp2 = temp2->next;
+            {
+                if(counter != 0)
+                {
+                    insert(ans,counter);
+                }
+                reverse(ans);
+                return ans;
+            }
         }
         insert(ans,temp2->data);
     }
