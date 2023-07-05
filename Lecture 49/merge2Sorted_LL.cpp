@@ -131,38 +131,45 @@ void merge(Node *&final, Node *&temp1, Node *&temp2)
 // Approach 2 - NEEDS TO BE FIXED
 Node* solve(Node* first, Node* second) 
 {
-    // Node* curr1 = first;
-    // Node* next1 = curr1 -> next;
-    
-    // Node* curr2 = second;
-    // Node* next2 = curr2 -> next;
-    
-    // while(next1 != NULL && curr2 != NULL) 
-    // {
-        
-    //     if( (curr2 -> data >= curr1 -> data ) 
-    //        && ( curr2 -> data <= next1 -> data)) 
-    //        {
-    //         cout << curr1->data << endl;
-    //         cout << curr2->data << endl;
-    //         curr1 -> next = curr2;
-    //         curr2 -> next = next1;
-    //         curr1 = curr1 -> next;
-    //         curr2 = next2;
-    //     }
-    //     else 
-    //     {
-    //         curr1 = next1;
-    //         next1 = next1->next;
+    if(first->next == NULL)
+    {
+        first->next = second;
+        return first;
+    }   
 
-    //         if(next1 == NULL)
-    //         {
-    //             curr1->next = curr2;
-    //             return first;
-    //         }
-    //     }   
-    // }
-    // return first;
+    Node *one = first;
+    Node *one_next = one->next;
+    Node *two = second;
+
+    while(one->next != NULL && two != NULL)
+    {
+        int val = two->data;
+        if((one->data <= val) && (one_next->data >= val))
+        {
+            if(two->next == NULL)
+            {
+                one->next = two;
+                two->next = one_next;
+                break;
+            }
+            Node *two_next = two->next;
+            one->next = two;
+            two->next = one_next;
+            one = two;
+            two = two_next;
+        }
+        else
+        {
+            one = one->next;
+            if(one_next->next == NULL)
+            {
+                one->next = two;
+                return first;
+            }
+            one_next = one_next->next;
+        }
+    }
+    return first;
 }
 
 Node* sortTwoLists(Node* first, Node* second)
