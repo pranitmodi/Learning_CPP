@@ -77,6 +77,9 @@ Node* clone(Node *&head)
     return head2;
 }
 
+// Approach 2
+
+
 int main()
 {
     Node *head1 = NULL;
@@ -99,8 +102,8 @@ int main()
     print(head1);
     cout << endl;
 
-    cout << "Cloned LL: " << endl;
-    Node *head2 = clone(head1);
-    print(head2);
+    // cout << "Cloned LL: " << endl;
+    // Node *head2 = clone(head1);
+    // print(head2);
     return 0;
 }
