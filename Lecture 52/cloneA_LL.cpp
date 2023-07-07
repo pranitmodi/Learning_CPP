@@ -78,7 +78,55 @@ Node* clone(Node *&head)
 }
 
 // Approach 2
+Node* clone2(Node *head)
+{
+    Node *head2 = new Node(head->data);
+    Node *temp1 = head->next;
+    head->next = head2;
+    Node *temp2 = head2;
 
+    // creating the pattern
+    while(temp1 != NULL)
+    {
+        Node *next2 = new Node(temp1->data);
+        temp2->next = temp1;
+        temp2 = next2;
+
+        if(temp1->next == NULL)
+        {
+            temp1->next = temp2;
+            break;
+        }
+
+        Node *next1 = temp1->next;
+        temp1->next = temp2;
+        temp1 = next1;
+    }
+
+    // assigning random pointers
+    Node *temp = head;
+    while(temp != NULL)
+    {
+        temp->next->random = temp->random->next;
+
+        if(temp->next->next == NULL)
+            break;
+
+        temp = temp->next->next;
+    }
+
+    // fixing the traversal
+    temp = head2;
+    while(temp->next != NULL)
+    {
+        temp->next = temp->next->next;
+
+        temp = temp->next;
+    }
+
+    return head2;
+
+}
 
 int main()
 {
@@ -88,22 +136,31 @@ int main()
     Node *temp3 = new Node(3);
     Node *temp4 = new Node(4);
     Node *temp5 = new Node(5);
+    Node *temp6 = new Node(6);
     temp1->next = temp2;
     temp2->next = temp3;
     temp3->next = temp4;
     temp4->next = temp5;
+    temp5->next = temp6;
 
     temp1->random = temp3;
     temp3->random = temp5;
     temp5->random = temp2;
     temp4->random = temp3;
     temp2->random = temp1;
+    temp6->random = temp3;
     head1 = temp1;
     print(head1);
     cout << endl;
 
-    // cout << "Cloned LL: " << endl;
+    cout << "Cloned LL: " << endl;
+
+    // APPROACH 1
     // Node *head2 = clone(head1);
     // print(head2);
+
+    // APPROACH 2
+    Node *head2 = clone2(head1);
+    print(head2);
     return 0;
 }
