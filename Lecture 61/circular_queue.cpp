@@ -40,6 +40,8 @@ int tour1(petrolPump p[],int n)
     }
     return ans;
 }
+
+// APPROACH 2
 int tour2(petrolPump p[],int n)
 {
     int front = 0;
