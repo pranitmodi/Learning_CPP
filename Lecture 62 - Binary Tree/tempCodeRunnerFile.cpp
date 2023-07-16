@@ -1,1 +1,17 @@
-1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1 
+#include <bits/stdc++.h>
+using namespace std;
+class Node
+{
+    public: 
+        int data;
+        Node *left;
+        Node *right;
+
+        Node(int data)        
+        {
+            this->data = data;
+            this->left = NULL;
+            this->right = NULL; 
+            // cout << "Created for " << data << endl;
+        }
+};
