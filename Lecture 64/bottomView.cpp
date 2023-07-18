@@ -12,7 +12,7 @@ struct Node
         left = right = NULL;
     }
 };
-vector<int> topView(Node *root)
+vector<int> bottomView(Node *root)
 {
     queue<pair <Node*, int> >q; // No need to store according to levels, we just need the data of the first node at each position
     map <int,int> nodes;
@@ -29,10 +29,7 @@ vector<int> topView(Node *root)
         Node *frontNode = temp.first;
         int hd = temp.second;
 
-        if(nodes.find(hd) == nodes.end())
-        {
-            nodes[hd] = frontNode->data;
-        }
+        nodes[hd] = frontNode->data;
 
         if(frontNode->left != NULL)
             q.push(make_pair(frontNode->left,hd-1));
