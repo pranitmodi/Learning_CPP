@@ -13,6 +13,9 @@ struct Node
         right = NULL;
     }
 };
+
+
+// SHOWING TLEEEEEEEEE - time limit exceeded
 void solve(Node *root, int k, int &count, vector<int> path)
 {
     if(root == NULL)
