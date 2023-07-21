@@ -14,7 +14,7 @@ struct Node
     }
 };
 
-Node* solve(int *in, int *&pr, int n, int i)
+Node* solve(int *in, int *&pr, int i)
 {
     if(i == 1)
     {
@@ -37,7 +37,7 @@ Node* solve(int *in, int *&pr, int n, int i)
     else
     {
         pr = pr + 1;
-        next->left = solve(in,pr,n,j);
+        next->left = solve(in,pr,j);
     }
 
     if(j == i-1)
@@ -45,13 +45,13 @@ Node* solve(int *in, int *&pr, int n, int i)
     else
     {
         pr = pr + 1;
-        next->right = solve(in+j+1,pr,n,i-j-1);
+        next->right = solve(in+j+1,pr,i-j-1);
     }
 
     return next;
 }
 Node* buildTree(int in[], int pre[], int n)
 {
-    Node *root = solve(in,pre,n,n);
+    Node *root = solve(in,pre,n);
     return root;
 }
