@@ -36,9 +36,11 @@ BinaryTreeNode<int>* solve(vector<int> &preorder, int &i, int min, int max)
     }
 
     BinaryTreeNode<int>* root = new BinaryTreeNode<int>(preorder[i++]);
-    if(preorder[i] > min && preorder[i] < root->data)
+
+    // same values we are passing which we are checking next time
+    //if(preorder[i] > min && preorder[i] < root->data)
         root->left = solve(preorder,i,min,root->data); 
-    if(preorder[i] < max && preorder[i] > root->data)
+    //if(preorder[i] < max && preorder[i] > root->data)
         root->right = solve(preorder,i,root->data,max);
 
     return root;
