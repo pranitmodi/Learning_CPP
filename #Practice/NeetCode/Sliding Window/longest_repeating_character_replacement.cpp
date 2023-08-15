@@ -32,6 +32,33 @@ int characterReplacement(string s, int k)
         return s.length();
     return ans;
 }
+
+// TC - O(n)
+int characterReplacement1(string s, int k) 
+{
+    int n = s.size();
+    int i = 0, j = 0, maxi = 0;
+    unordered_map<char,int>mp;
+    int ans = -1;
+    while(j < n)
+    {
+        mp[s[j]]++;
+        // maxi - the count of the element that i smaximum in the current window
+        maxi = max(maxi, mp[s[j]]);
+
+        // means all other elemnts other than the most frequent one, if they are more thant the limit k, increment the window
+        if((j-i+1) - maxi > k)
+        {
+            mp[s[i]]--;
+            i++;
+        }
+        ans = max(ans, (j-i+1));
+        j++;   
+    }
+    return ans;
+}
+
+
 int main()
 {
     string str = "BAAAB";
