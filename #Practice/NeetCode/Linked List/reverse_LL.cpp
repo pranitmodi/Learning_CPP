@@ -1,7 +1,6 @@
 // leetCode - 206
 #include <bits/stdc++.h>
 using namespace std;
-
 struct ListNode 
 {
     int val;
