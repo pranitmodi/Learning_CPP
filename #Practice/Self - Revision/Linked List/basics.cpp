@@ -23,23 +23,28 @@ class Node
             cout << "Node has been deleted with data: " << val << endl;
         }
 };
-void Reverse(Node *&head)
+void insertAtHead(Node *&head, int data)
 {
-    Node *prev = NULL;
-    Node *curr = head;
-    Node *nxt = NULL;
-
-    while(curr != NULL)
+    Node *temp = new Node(data);
+    if(head == NULL)
     {
-        nxt = curr->next;
-        curr->next = prev;
-        prev = curr;
-        curr = nxt;
+        head = temp;
+        return;
     }
 
-    head = prev;
+
 }
 int main()
 {
-    
+    Node *head = new Node(23);
+    Node *temp = NULL;
+
+    cout << head->data << endl;
+    cout << temp->data << endl;
+
+    head = temp->next;
+
+    cout << head->data << endl;
+    cout << temp->data << endl;
+
 }
