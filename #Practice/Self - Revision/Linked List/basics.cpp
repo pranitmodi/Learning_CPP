@@ -31,20 +31,35 @@ void insertAtHead(Node *&head, int data)
         head = temp;
         return;
     }
-
-
 }
 int main()
 {
+    // Node *head = new Node(23);
+    // Node *temp = NULL;
+
+    // cout << head->data << endl;
+    // cout << temp->data << endl;
+
+    // head = temp->next;
+
+    // cout << head->data << endl;
+    // cout << temp->data << endl;
+
     Node *head = new Node(23);
-    Node *temp = NULL;
+    Node *temp1 = new Node(43);
+    head->next = temp1;
 
-    cout << head->data << endl;
-    cout << temp->data << endl;
+    Node *head2 = head;
+    Node *t = head2;
+    Node *n = new Node(44);
+    t->next = n;
+    cout << head2->data << endl;
 
-    head = temp->next;
-
-    cout << head->data << endl;
-    cout << temp->data << endl;
+    while(head2 != NULL)
+    {
+        cout << head2->data << " ";
+        head2 = head2->next;
+    }
+    cout << endl;
 
 }
