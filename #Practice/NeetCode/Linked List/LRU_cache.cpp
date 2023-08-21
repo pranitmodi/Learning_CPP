@@ -4,7 +4,8 @@ using namespace std;
 
 // Need to use Doubly Linked List
 // Adding new nodes at the head
-// and if the a node has been used in get, the deleting it fromt its place and adding it in front 
+// and if the a node has been used in get, the deleting it fromt its place and adding it in front so we can keep a track that it has been recently used
+// thus the node at the tail has been least used 
 
 
 class LRUCache {
