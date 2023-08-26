@@ -34,6 +34,7 @@ int diameter(Node* root)
 
 // Approach - 2
 // Out of pair first is Diameter, second is Height
+// Need to -1 in the end
 pair<int,int> diameterFast(Node *root)
 {
     if(root == NULL)
