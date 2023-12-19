@@ -1,0 +1,1 @@
+    cout << arr[s] << " " << arr[e] << endl;
