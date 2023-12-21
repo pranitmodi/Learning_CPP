@@ -11,6 +11,19 @@ class Node
             this->data = data;
             this->next = NULL;
         }
+
+        ~Node()
+        {
+            int val = this->data;
+            
+            if(this->next != NULL)
+            {
+                this->next = NULL;
+                delete next;
+            }
+
+            cout << "Node deleted for node: " << val << endl;
+        }
 };
 void insert(int pos, Node *&head, int val)
 {
@@ -42,6 +55,37 @@ void insert(int pos, Node *&head, int val)
     }
     cout << val << " Inserted!" << endl;
 }
+void deleteNode(Node *&head, int pos)
+{   
+    if(pos == 1)
+    {
+        Node *temp = head;
+        head = head->next;
+        temp->next = NULL;
+        delete temp;
+    }
+    else
+    {
+        Node *temp = head;
+        int c = 2;
+        while(temp != NULL && c<pos)
+        {
+            c++;
+            temp = temp->next;
+        }
+        if(temp == NULL)
+        {
+            cout << "okay" << endl;
+            return;
+        }
+        // cout << temp->data << endl;
+        Node *temp2 = temp->next;
+        temp->next = temp2->next;
+
+        temp2->next = NULL;
+        delete temp2;
+    }
+}
 void print(Node *head)
 {
     Node *temp = head;
@@ -70,6 +114,42 @@ int main()
     print(head);
 
     insert(1,head,66);
+    print(head);
+
+    deleteNode(head,4);
+    print(head);
+
+    deleteNode(head,1);
+    print(head);
+
+    deleteNode(head,11);
+    print(head);
+
+    deleteNode(head,2);
+    print(head);
+
+    insert(1,head,12);
+    print(head);
+
+    insert(4,head,72);
+    print(head);
+
+    insert(8,head,86);
+    print(head);
+
+    insert(5,head,77);
+    print(head);
+
+    insert(1,head,12);
+    print(head);
+
+    insert(4,head,72);
+    print(head);
+
+    insert(8,head,86);
+    print(head);
+
+    insert(5,head,77);
     print(head);
 
 }

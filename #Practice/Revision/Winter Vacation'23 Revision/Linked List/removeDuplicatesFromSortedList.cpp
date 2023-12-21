@@ -1,4 +1,4 @@
-// 203
+// 160
 #include <bits/stdc++.h>
 using namespace std;
 struct ListNode 
@@ -11,41 +11,26 @@ struct ListNode
 };
 class Solution {
 public:
-    ListNode* removeElements(ListNode* head, int val) 
+    ListNode* deleteDuplicates(ListNode* head) 
     {
         if(head == NULL)
-        {
-            return NULL;
-        }
-        while(head->val == val)
-        {
-            if(head->next == NULL)
-                return NULL;
-            head = head->next;
-        }
-        
-        ListNode* prev = head;
-        ListNode* curr = head->next;
-        if(curr == NULL)
             return head;
-        while(curr->next != NULL)
+        ListNode* prev = head;
+        ListNode* curr = prev->next;
+        while(curr != NULL)
         {
-            if(curr->val == val)
+            if(prev->val == curr->val)
             {
                 curr = curr->next;
                 prev->next = curr;
             }
             else
             {
-                curr = curr->next;
                 prev = prev->next;
+                curr = curr->next;
             }
         }
-        if(curr->val == val)
-        {
-            prev->next = NULL;
-        }
-
+        
         return head;
     }
 };
