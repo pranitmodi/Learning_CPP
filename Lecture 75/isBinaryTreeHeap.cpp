@@ -25,7 +25,7 @@ class Solution {
         if(tree == NULL)
             return true;
             
-        if(i >= cn)
+        if(i >= cn) // passing the full size, else pass cn-i. as that is the last index of the array
         {
             return false;
         }
