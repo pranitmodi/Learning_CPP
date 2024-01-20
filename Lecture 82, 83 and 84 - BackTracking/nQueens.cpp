@@ -18,6 +18,7 @@ public:
             }
             str.push_back(s);
         }
+        
         ans.push_back(str);
     }
     bool isSafe(int n, int row, int col, vector<vector<int>> board)
