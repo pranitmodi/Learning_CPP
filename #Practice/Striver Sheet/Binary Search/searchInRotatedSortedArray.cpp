@@ -6,6 +6,8 @@ public:
     {
         if(nums.size() == 1)
             if(nums[0] == target) return 0;
+
+        // finding pivot point
         int s = 0;
         int e = nums.size()-1;
         while(s<e)
@@ -17,12 +19,12 @@ public:
             if(nums[mid] >= nums[0])
                 s = mid +1;
             else 
-                e = mid;
+                e = mid; // cannot do mid-1 while finding pivot
         }   
 
         int pivot = s;
 
-        if(nums[0] <= nums[nums.size()-1])
+        if(nums[0] <= nums[nums.size()-1]) // if there was no pivot
         {
             s = 0;
             e = nums.size()-1;
