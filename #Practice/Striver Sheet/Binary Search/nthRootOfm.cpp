@@ -7,7 +7,7 @@ int find(int mid, int n, int m)
     {
         ans = ans * mid;
         if(ans>m)
-        return 2;
+            return 2;
     }
 
     if(ans == m)
