@@ -1,21 +1,21 @@
 #include <bits/stdc++.h>
 using namespace std;
-void solve(vector<string> &s, int n, string str)
+void solve(vector<string> &ans, int n, string s)
 {
     if(n == 0)
     {
-        s.push_back(str);
+        ans.push_back(s);
         return;
     }
 
-    solve(s,n-1,str+"0");
-    solve(s,n-1,str+"1");
+    solve(ans,n-1,s+"0");
+    solve(ans,n-1,s+"1");
 }
 int main()
 {
-    vector<string> s;
     int n = 3;
-    solve(s,n,"");
-    for(auto i:s)
+    vector<string> ans;
+    solve(ans,n,"");
+    for(auto i:ans)
         cout << i << endl;
 }
