@@ -7,7 +7,6 @@ public:
     // {
     //     if(n == 1)
     //         return 1;
-
     //     return (n * fact(n-1));
     // }
     int trailingZeroes(int n) 
@@ -19,10 +18,8 @@ public:
         }
         return count;
 
-
         // if(n == 0)  
         //     return 0;
-
         // long long int f = fact(n);
         // int count = 0;
         // while(f!=0)
@@ -33,7 +30,6 @@ public:
         //     count++;
         //     f = f/10;
         // }   
-
         // return count;
     }
 };
