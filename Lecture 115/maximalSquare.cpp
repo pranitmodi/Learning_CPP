@@ -84,3 +84,31 @@ int maximalSquare(vector<vector<char>>& matrix)
     }
     return maxi*maxi;
 }
+
+// Space Optimization
+int maximalSquare(vector<vector<char>>& matrix) 
+{
+    int maxi = 0;
+    vector<int> prev(matrix[0].size()+1,0);
+    vector<int> curr(matrix[0].size()+1,0);
+
+    for(int i=matrix.size()-1; i>=0; i--)
+    {
+        for(int j=matrix[0].size()-1; j>=0;  j--)
+        {
+            int right = prev[j+1];
+            int diag = curr[j+1];
+            int left = curr[j];
+
+            if(matrix[i][j] == '1')
+            {
+                prev[j] = 1 + min(left, min(right,diag));
+                maxi = max(prev[j],maxi);
+            }
+            else
+                prev[j] = 0;
+        }
+        curr = prev;
+    }
+    return maxi*maxi;
+}
