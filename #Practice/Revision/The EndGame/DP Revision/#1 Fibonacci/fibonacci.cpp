@@ -28,6 +28,20 @@ int tab(int n)
     return dp[n-1];
 }
 
+// Optimization
+int tabOpt(int n)
+{
+    int a = 0;
+    int b = 1;
+    for(int i=2; i<n; i++)
+    {
+        int curr = a + b;
+        a = b;
+        b = curr;
+    }
+    return b;
+}
+
 int main()
 {
     int n;
@@ -37,5 +51,5 @@ int main()
     vector<int> dp(n+1,-1);
     // cout << "Ans: " << solve(n,dp) << endl;
 
-    cout << "Ans: " << tab(n) << endl;
+    cout << "Ans: " << tabOpt(n) << endl;
 }
