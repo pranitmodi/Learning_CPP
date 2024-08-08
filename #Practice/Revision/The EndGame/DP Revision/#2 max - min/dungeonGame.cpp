@@ -2,6 +2,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// With DP is left
+
+// Recusrion - TLE
 class Solution {
 public:
     bool check(int r, int c, int m, int n)
