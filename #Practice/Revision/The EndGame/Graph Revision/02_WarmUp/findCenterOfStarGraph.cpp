@@ -8,8 +8,6 @@ public:
         int n = edges.size();
         vector<int> v(n+2,0);
 
-        int ans = -1;
-        int maxi = -1;
         for(int i=0; i<n; i++)
         {
             int a = edges[i][0];
@@ -21,13 +19,10 @@ public:
 
         for(int i=1;i<=(n+1);i++)
         {
-            if(v[i] > maxi)
-            {
-                maxi = v[i];
-                ans = i;
-            }
+            if(v[i] == n)
+                return i;
         }
 
-        return ans;
+        return -1;    
     }
 };

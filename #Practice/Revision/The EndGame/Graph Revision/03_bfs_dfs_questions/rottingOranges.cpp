@@ -3,7 +3,7 @@
 using namespace std;
 class Solution {
 public:
-    bool check(int a, int b, int n, vector<vector<int>>& grid, vector<vector<int>> &visited, int m)
+    bool check(int a, int b, int n, vector<vector<int>>& grid, vector<vector<bool>> &visited, int m)
     {
         if(a<n && a>=0 && b>=0 && b<m && grid[a][b] && !visited[a][b])
         {
@@ -14,33 +14,30 @@ public:
     }
     int orangesRotting(vector<vector<int>>& grid) 
     {
+        int m = grid.size();
+        int n = grid[0].size();
+        int countFresh = 0;
         queue<pair<int,int>> q;
-        int normal = 0;
-        int n = grid.size();
-        int m = grid[0].size();
-        vector<vector<int>> visited(n,vector<int>(m,0));
+        vector<vector<bool>> visited(m,vector<bool>(n,false));
 
-        for(int i=0; i<n; i++)
+        for(int i=0; i<m; i++)
         {
-            for(int j=0; j<m; j++)
+            for(int j=0; j<n; j++)
             {
                 if(grid[i][j] == 1)
-                    normal++;
+                {
+                    countFresh++;
+                }
                 else if(grid[i][j] == 2)
                 {
                     q.push(make_pair(i,j));
                     visited[i][j] = 1;
                 }
             }
-        }    
-        if(normal == 0)
-            return 0;
-        else if(q.empty())
-            return -1;
-
+        }
         int ans = 0;
-        
-        q.push(make_pair(-1,-1));
+
+        q.push(make_pair(-1,-1)); //after all rotten have been popped and after all fresh from these rotten have been made rotten, then only +1.
         while(!q.empty())
         {
             pair<int,int> p = q.front();
@@ -59,38 +56,39 @@ public:
                 int a = p.first;
                 int b = p.second;
 
-                if(check(a+1,b,n,grid,visited,m))
+                if(check(a,b-1,m,grid,visited,n))
                 {
-                    normal--;
-                    grid[a+1][b] = 2;
-                    q.push(make_pair(a+1,b));
-                }
-
-                if(check(a-1,b,n,grid,visited,m))
-                {
-                    normal--;
-                    grid[a-1][b] = 2;
-                    q.push(make_pair(a-1,b));
-                }
-
-                if(check(a,b+1,n,grid,visited,m))
-                {
-                    normal--;
-                    grid[a][b+1] = 2;
-                    q.push(make_pair(a,b+1));
-                }
-
-                if(check(a,b-1,n,grid,visited,m))
-                {
-                    normal--;
-                    grid[a][b-1] = 2;
+                    countFresh--;
                     q.push(make_pair(a,b-1));
+                    visited[a][b-1] = true;
+                }
+
+                if(check(a+1,b,m,grid,visited,n))
+                {
+                    countFresh--;
+                    q.push(make_pair(a+1,b));
+                    visited[a+1][b] = true;
+                }
+
+                if(check(a,b+1,m,grid,visited,n))
+                {
+                    countFresh--;
+                    q.push(make_pair(a,b+1));
+                    visited[a][b+1] = true;
+                }
+
+                if(check(a-1,b,m,grid,visited,n))
+                {
+                    countFresh--;
+                    q.push(make_pair(a-1,b));
+                    visited[a-1][b] = true;
                 }
             }
         }
 
-        if(normal > 0)
+        if(countFresh > 0)
             return -1;
+
         return ans;
     }
 };
