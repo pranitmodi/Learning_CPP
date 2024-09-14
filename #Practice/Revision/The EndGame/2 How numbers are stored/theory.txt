@@ -1,0 +1,16 @@
+Positive Numbers - just convert decimal to binary
+Negative Numbers    
+    - Convert decimal to binary
+    - Take 2's compliment (1's compliment and then add one bit to the Last Bit(least significant bit))
+
+Now, the leftmost bit (Most significant bit) tells us whether the number is positive or negative,
+    - if it is 1 - negative number, then take 2's compliment and then convert to decimal 
+        and assign a negative sign to the decimal.
+    - if it is 0 - positive number, then just convert to decimal.
+
+int range after 2's compliment was implimented to ignore -0 -> -2^31 to (2^31)-1.
+
+8 bytes = 32 bits
+2^32 total combinations
+half for negative and non-negative - 2^31 each
+since we start non-negative by 0, thus one less in range.
