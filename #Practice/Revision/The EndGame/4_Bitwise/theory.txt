@@ -1,0 +1,42 @@
+AND -> & -> (.) operator
+OR -> | -> (+) operator
+NOT -> ~ -> takes 1's compliment
+XOR -> ^
+    -> 1 for odd number of 1's
+    -> 0 for even number of 1's
+    -> a^a = 0
+    -> a^0 = a
+    -> Question: Subarray of a given XOR k
+
+LSB is the right most bit.
+MSB is the left most bit, tells positive or negative number.
+
+For printing ~a -> it takes 2's compliment as MSB is 1, and thus prints a negative number.
+
+Left Shift -> eg: 5<<1 -> (multiply by 2)
+           -> for big numbers, this might create a negative number, if MSB becomes 1.
+
+Right Shift -> eg: 5>>2 -> (division by 2)
+            -> padding always happens with 0 for positive numbers.
+
+All odd number have the LSB as 1 and even number don't, Thus (n&1) == 1, means the number is odd.
+
+To add two integers -> 
+    int getSum(int a, int b) 
+    {
+        if(b == 0)  return a;
+        return getSum(a^b, (a&b)<<1);
+    }
+
+    a^b - calulates the sum without considering carry
+    (a&b)<<1 - will add the carry and move one bit left, to be added with (a^b) result recursively.
+
+If you want to calculate number of 1 bits in all the numbers till n, start with 0, and check for LSB and then right shift and check the already existing calculated.
+-> countingBits.cpp
+
+When you take AND of (n & n-1), it makes all the bits zero including the first set bit in n i.e. the first 1 from the right in n.
+eg: 1011000 & 1010111 => 1010000
+-> bitwiseAndOfRange.cpp
+
+Set Bits = number of bits as 1 in the binary of the integer
+For all the power of 2, it has set bits equal to 1, i.e. number of 1 bits is 1.

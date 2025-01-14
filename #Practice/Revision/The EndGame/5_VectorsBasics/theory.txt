@@ -1,0 +1,6 @@
+Static (Stack memory) - Compile time => Arrays, fixed size is allocated at initialization.
+Dynamic Memory Allocation (Heap memory) - Runtime => Vectors falls into this, as size can be changed.
+
+Whenever push_back() is done, size of the vector gets doubled.
+-> This is done by making a new vector of double the size and copying the elements to that vector.
+
