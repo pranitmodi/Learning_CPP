@@ -1,6 +1,0 @@
-{
-    "code-runner.runInTerminal": true,
-    "files.exclude": {
-      "**/*.exe": true
-  }
-}

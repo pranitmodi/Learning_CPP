@@ -5,7 +5,7 @@ int main()
     // Int to Char and Vice-Versa - IMPLICIT TYPE CASTING
     int i = 97;
     int d = 123456;
-    char ch = 'A';
+DSA1 - Basics, Flowcharts, Bitwise, Decimal    char ch = 'A';
 
     char ch1 = i;
     char ch2 = d;

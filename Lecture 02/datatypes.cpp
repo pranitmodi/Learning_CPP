@@ -7,15 +7,16 @@ int main()
 
     char ch ='A';
     cout << ch << endl;
+    cout << (int)ch << endl; //Typecasting char to int to get the ASCII value of the character.
 
     bool b = false;
-    cout << b << endl; //While printing bool, if True then 1 is preinted and if False then 0.
+    cout << b << endl; //While printing bool, if True then 1 is printed and if False then 0.
     
     float f = 1.2;
     cout << f << endl;
 
     int size = sizeof(a);
-    cout << "Size of a is:" << size << endl;
+    cout << "Size of a is: " << size << endl;
 
     double d = 5/2.0;
     cout << d << endl;
