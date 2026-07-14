@@ -18,7 +18,16 @@
         "unordered_set": "cpp"
     },
     "files.exclude": {
-      "**/*.exe": true
-  },
+        "**/*.exe": true,
+        "**/*.out": true,
+        "**/*.class": true,
+        "**/hello": true,
+        "**/datatypes": true,
+        "**/implicit_type_casting": true
+    },
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.patterns": {
+        "*.cpp": "${capture}, ${capture}.exe, ${capture}.out, ${capture}.class"
+    },
     "C_Cpp.errorSquiggles": "disabled"
 }
