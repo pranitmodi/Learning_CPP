@@ -29,5 +29,7 @@
     "explorer.fileNesting.patterns": {
         "*.cpp": "${capture}, ${capture}.exe, ${capture}.out, ${capture}.class"
     },
-    "C_Cpp.errorSquiggles": "disabled"
+    "C_Cpp.errorSquiggles": "disabled",
+    "editor.inlineSuggest.enabled": false,
+    "terminal.integrated.cwd": "${fileDirname}"
 }
